@@ -9,6 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
+const categoria_entity_1 = require("./categoria/entities/categoria.entity");
+const categoria_module_1 = require("./categoria/categoria.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -21,10 +23,11 @@ exports.AppModule = AppModule = __decorate([
                 port: 3306,
                 username: 'root',
                 password: 'root',
-                database: 'db_blogpessoal',
-                entities: [],
+                database: 'db_farmacia',
+                entities: [categoria_entity_1.Categoria],
                 synchronize: true,
-            })
+            }),
+            categoria_module_1.CategoriaModule
         ],
         controllers: [],
         providers: [],
