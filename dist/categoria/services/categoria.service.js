@@ -22,13 +22,20 @@ let CategoriaService = class CategoriaService {
         this.categoriaRepository = categoriaRepository;
     }
     async findAll() {
-        return await this.categoriaRepository.find();
+        return await this.categoriaRepository.find({
+            relations: {
+                produto: true
+            }
+        });
     }
     async findById(id) {
         let categoria = await this.categoriaRepository.findOne({
             where: {
                 id
             },
+            relations: {
+                produto: true
+            }
         });
         if (!categoria)
             throw new common_1.HttpException('Categoria não encontrada!', common_1.HttpStatus.NOT_FOUND);
@@ -39,6 +46,9 @@ let CategoriaService = class CategoriaService {
             where: {
                 tipo: (0, typeorm_2.ILike)(`%${tipo}%`)
             },
+            relations: {
+                produto: true
+            }
         });
     }
     async create(categoria) {

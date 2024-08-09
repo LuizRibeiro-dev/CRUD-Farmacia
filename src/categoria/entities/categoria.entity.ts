@@ -1,5 +1,6 @@
 import { IsNotEmpty } from "class-validator"
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
+import { Produto } from "../../produto/entities/produto.entity"
 /*import { Produto } from "../../produto/entities/produto.entity"*/
 /*import { ApiProperty } from "@nestjs/swagger"*/
 
@@ -15,7 +16,7 @@ export class Categoria {
     /*@ApiProperty()*/
     tipo: string
     
-    /*@ApiProperty()
+    /*@ApiProperty()*/
     @OneToMany(() => Produto, (produto) => produto.categoria)
-    produto: Produto[]*/
+    produto: Produto[]
 }

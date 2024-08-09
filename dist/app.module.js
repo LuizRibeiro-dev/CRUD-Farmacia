@@ -11,6 +11,8 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const categoria_entity_1 = require("./categoria/entities/categoria.entity");
 const categoria_module_1 = require("./categoria/categoria.module");
+const produto_module_1 = require("./produto/produto.module");
+const produto_entity_1 = require("./produto/entities/produto.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -24,10 +26,11 @@ exports.AppModule = AppModule = __decorate([
                 username: 'root',
                 password: 'root',
                 database: 'db_farmacia',
-                entities: [categoria_entity_1.Categoria],
+                entities: [categoria_entity_1.Categoria, produto_entity_1.Produto],
                 synchronize: true,
             }),
-            categoria_module_1.CategoriaModule
+            categoria_module_1.CategoriaModule,
+            produto_module_1.ProdutoModule
         ],
         controllers: [],
         providers: [],

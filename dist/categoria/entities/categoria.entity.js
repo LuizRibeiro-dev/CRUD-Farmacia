@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Categoria = void 0;
 const class_validator_1 = require("class-validator");
 const typeorm_1 = require("typeorm");
+const produto_entity_1 = require("../../produto/entities/produto.entity");
 let Categoria = class Categoria {
 };
 exports.Categoria = Categoria;
@@ -24,6 +25,10 @@ __decorate([
     (0, typeorm_1.Column)({ length: 100, nullable: false }),
     __metadata("design:type", String)
 ], Categoria.prototype, "tipo", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => produto_entity_1.Produto, (produto) => produto.categoria),
+    __metadata("design:type", Array)
+], Categoria.prototype, "produto", void 0);
 exports.Categoria = Categoria = __decorate([
     (0, typeorm_1.Entity)({ name: "tb_categorias" })
 ], Categoria);
