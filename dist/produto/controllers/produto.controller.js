@@ -16,6 +16,8 @@ exports.ProdutoController = void 0;
 const common_1 = require("@nestjs/common");
 const produto_entity_1 = require("../entities/produto.entity");
 const produto_service_1 = require("../services/produto.service");
+const jwt_auth_guard_1 = require("../../auth/guard/jwt-auth.guard");
+const swagger_1 = require("@nestjs/swagger");
 let ProdutoController = class ProdutoController {
     constructor(produtoService) {
         this.produtoService = produtoService;
@@ -88,6 +90,8 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProdutoController.prototype, "delete", null);
 exports.ProdutoController = ProdutoController = __decorate([
+    (0, swagger_1.ApiTags)('Produto'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Controller)("/produtos"),
     __metadata("design:paramtypes", [produto_service_1.ProdutoService])
 ], ProdutoController);

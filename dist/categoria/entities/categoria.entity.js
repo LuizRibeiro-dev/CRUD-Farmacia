@@ -13,19 +13,23 @@ exports.Categoria = void 0;
 const class_validator_1 = require("class-validator");
 const typeorm_1 = require("typeorm");
 const produto_entity_1 = require("../../produto/entities/produto.entity");
+const swagger_1 = require("@nestjs/swagger");
 let Categoria = class Categoria {
 };
 exports.Categoria = Categoria;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)
 ], Categoria.prototype, "id", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, typeorm_1.Column)({ length: 100, nullable: false }),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Categoria.prototype, "tipo", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)(),
     (0, typeorm_1.OneToMany)(() => produto_entity_1.Produto, (produto) => produto.categoria),
     __metadata("design:type", Array)
 ], Categoria.prototype, "produto", void 0);

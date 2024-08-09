@@ -16,6 +16,8 @@ exports.CategoriaController = void 0;
 const common_1 = require("@nestjs/common");
 const categoria_entity_1 = require("../entities/categoria.entity");
 const categoria_service_1 = require("../services/categoria.service");
+const jwt_auth_guard_1 = require("../../auth/guard/jwt-auth.guard");
+const swagger_1 = require("@nestjs/swagger");
 let CategoriaController = class CategoriaController {
     constructor(categoriaService) {
         this.categoriaService = categoriaService;
@@ -88,7 +90,10 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CategoriaController.prototype, "delete", null);
 exports.CategoriaController = CategoriaController = __decorate([
+    (0, swagger_1.ApiTags)('Categoria'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Controller)("/categorias"),
+    (0, swagger_1.ApiBearerAuth)(),
     __metadata("design:paramtypes", [categoria_service_1.CategoriaService])
 ], CategoriaController);
 //# sourceMappingURL=categoria.controller.js.map

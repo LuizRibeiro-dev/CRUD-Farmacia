@@ -1,13 +1,13 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
 import { Categoria } from "../entities/categoria.entity";
 import { CategoriaService } from "../services/categoria.service";
-/*import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";*/
-/*import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";*/
+import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
-/*@ApiTags('Categoria')*/
-/*@UseGuards(JwtAuthGuard)*/
+@ApiTags('Categoria')
+@UseGuards(JwtAuthGuard)
 @Controller("/categorias")
-/*@ApiBearerAuth()*/
+@ApiBearerAuth()
 export class CategoriaController {
   categoriaRepository: any;
   constructor(private readonly categoriaService: CategoriaService) { }

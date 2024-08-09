@@ -1,10 +1,12 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
 import { Produto } from "../entities/produto.entity";
 import { ProdutoService } from "../services/produto.service";
+import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
+import { ApiTags } from "@nestjs/swagger";
 
 
-/*@ApiTags ('Produto')*/
-/*@UseGuards(JwtAuthGuard)*/
+@ApiTags ('Produto')
+@UseGuards(JwtAuthGuard)
 @Controller("/produtos")
 export class ProdutoController {
   produtoRepository: any;

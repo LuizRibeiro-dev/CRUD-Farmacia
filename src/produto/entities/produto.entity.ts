@@ -2,47 +2,47 @@ import { IsNotEmpty, IsNumber } from "class-validator"
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
 import { Categoria } from "../../categoria/entities/categoria.entity";
 import { Transform, TransformFnParams } from "class-transformer";
-/*import { Usuario } from "../../usuario/entities/usuario.entity";*/
-/*import { ApiProperty } from "@nestjs/swagger";*/
+import { Usuario } from "../../usuario/entities/usuario.entity";
+import { ApiProperty } from "@nestjs/swagger";
 
 @Entity({name: "tb_produtos"})
 export class Produto {
 
-    /*@ApiProperty()*/
+    @ApiProperty()
     @PrimaryGeneratedColumn()
     id: number;
     
     @Transform(({ value }: TransformFnParams) => value?.trim())
-    /*@ApiProperty()*/
+    @ApiProperty()
     @IsNotEmpty()
     @Column({length: 100, nullable: false})
     nome: string
 
-    /*@ApiProperty()*/
+    @ApiProperty()
     @IsNotEmpty()
     @Column({length: 2000, nullable: false})
     laboratorio: string
 
-    /*@ApiProperty()*/
+    @ApiProperty()
     @IsNotEmpty()
     @Column({length: 2000, nullable: false})
     foto: string
 
-    /*@ApiProperty()*/
+    @ApiProperty()
     @IsNotEmpty()
     @IsNumber({maxDecimalPlaces: 2})
     @Column({ type: "decimal", precision: 10, scale: 2 })
     preco: number
     
-    /*@ApiProperty({ type: () => Categoria})*/
+    @ApiProperty({ type: () => Categoria})
     @ManyToOne(() => Categoria, (categoria) => categoria.produto, {
         onDelete: "CASCADE"
     })
     categoria: Categoria
 
-    /*@ApiProperty({ type: () => Usuario})
+    @ApiProperty({ type: () => Usuario})
     @ManyToOne(() => Usuario, (usuario) => usuario.produto, {
         onDelete: "CASCADE"
     })
-    usuario: Usuario*/
+    usuario: Usuario
 }

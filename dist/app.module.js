@@ -13,6 +13,10 @@ const categoria_entity_1 = require("./categoria/entities/categoria.entity");
 const categoria_module_1 = require("./categoria/categoria.module");
 const produto_module_1 = require("./produto/produto.module");
 const produto_entity_1 = require("./produto/entities/produto.entity");
+const auth_module_1 = require("./auth/auth.module");
+const usuario_entity_1 = require("./usuario/entities/usuario.entity");
+const usuario_module_1 = require("./usuario/usuario.module");
+const app_controller_1 = require("./app.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,13 +30,15 @@ exports.AppModule = AppModule = __decorate([
                 username: 'root',
                 password: 'root',
                 database: 'db_farmacia',
-                entities: [categoria_entity_1.Categoria, produto_entity_1.Produto],
+                entities: [categoria_entity_1.Categoria, produto_entity_1.Produto, usuario_entity_1.Usuario],
                 synchronize: true,
             }),
             categoria_module_1.CategoriaModule,
-            produto_module_1.ProdutoModule
+            produto_module_1.ProdutoModule,
+            auth_module_1.AuthModule,
+            usuario_module_1.UsuarioModule
         ],
-        controllers: [],
+        controllers: [app_controller_1.AppController],
         providers: [],
     })
 ], AppModule);

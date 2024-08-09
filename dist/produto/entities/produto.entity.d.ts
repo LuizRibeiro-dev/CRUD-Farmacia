@@ -1,4 +1,5 @@
 import { Categoria } from "../../categoria/entities/categoria.entity";
+import { Usuario } from "../../usuario/entities/usuario.entity";
 export declare class Produto {
     id: number;
     nome: string;
@@ -6,4 +7,5 @@ export declare class Produto {
     foto: string;
     preco: number;
     categoria: Categoria;
+    usuario: Usuario;
 }

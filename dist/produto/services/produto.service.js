@@ -27,6 +27,7 @@ let ProdutoService = class ProdutoService {
         return await this.produtoRepository.find({
             relations: {
                 categoria: true,
+                usuario: true
             }
         });
     }
@@ -37,6 +38,7 @@ let ProdutoService = class ProdutoService {
             },
             relations: {
                 categoria: true,
+                usuario: true
             }
         });
         if (!produto)
@@ -50,6 +52,7 @@ let ProdutoService = class ProdutoService {
             },
             relations: {
                 categoria: true,
+                usuario: true
             }
         });
     }
